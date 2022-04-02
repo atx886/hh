@@ -47,6 +47,7 @@ jobs:
           pip install ddddocr
           pip install requests
           pip install BeautifulSoup4 
+          pip install  onnxruntime
       - name: run-task
         run: python hh.py.
         
