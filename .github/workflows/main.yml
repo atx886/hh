@@ -52,5 +52,7 @@ jobs:
           pip install beautifulsoup4 
           
       - name: run-task
-        run: python hh.py.
+        run:
+         #!/usr/bin/env python
+         python hh.py.
         
