@@ -34,7 +34,17 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-      - name: check
+          
+      - name: Set up Python
         uses: actions/setup-python@v2
-      - run: python hh.py.
+        with:
+          python-version: '3.x'
+    
+    # 安装依赖
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install setuptools ddddocr
+      - name: run-task
+        run: python hh.py.
         
