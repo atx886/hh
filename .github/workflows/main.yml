@@ -54,5 +54,5 @@ jobs:
       - name: run-task
         run:
          #!/usr/bin/env python
-         python hh.py.
+         python hh.py
         
