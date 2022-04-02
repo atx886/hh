@@ -32,6 +32,9 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          python hh.py,
           echo Add other actions to build,
           echo test, and deploy your project.
+      - name: check
+        uses: actions/setup-python@v2
+      - run: python hh.py.
+        
