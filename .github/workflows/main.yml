@@ -1,0 +1,41 @@
+name: "签到"
+
+on:
+  schedule:
+    - cron: "04 16 * * *"  # scheduled at 06:00 (UTC+8) everyday
+  workflow_dispatch:
+
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    # if: github.ref == 'refs/heads/master'
+
+    steps:
+      - name: Checkout master
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          # ref: master
+
+      - name: Set up python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+
+      - name: Random sleep
+        if: github.event_name == 'schedule'
+        run: sleep $(shuf -i 10-300 -n 1)
+        
+      - name: Install dependencies
+         env：
+          PUSH_PLUS_TOKEN:${{secrets.PUSH_PLUS_TOKEN}}
+        run: |
+          python -m pip install --upgrade pip
+          pip install onnxruntime Pillow numpy opencv-python
+          pip install ddddocr
+          pip install setuptools
+          pip install requests
+          pip install beautifulsoup4 
+          python hh.py
