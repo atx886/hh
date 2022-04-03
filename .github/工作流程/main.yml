@@ -54,6 +54,7 @@ jobs:
           pip install beautifulsoup4 
           
       - name: run-task
+        env: PUSH_PLUS_TOKEN:${{secrets.PUSH_PLUS_TOKEN}}
         run:
          #!/usr/bin/env python
          python hh.py
