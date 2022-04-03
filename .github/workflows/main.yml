@@ -4,14 +4,10 @@ name: "签到"
 
 on:
   schedule:
-    - cron: "05 11 * * *"  # scheduled at 06:00 (UTC+8) everyday
+    - cron: "06 3 * * *"  # scheduled at 06:00 (UTC+8) everyday
   workflow_dispatch:
   watch: 
     types: started
-
-env:
-  RUN_ENV: 'prod'
-  TZ: 'Asia/Shanghai'
 
 jobs:
   build:
