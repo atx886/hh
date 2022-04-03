@@ -31,6 +31,8 @@ jobs:
         
       - name: Install dependencies
         run: |
+          env:
+            PUSH_PLUS_TOKEN: ${{secrets.PUSH_PLUS_TOKEN}}
           python -m pip install --upgrade pip
           pip install onnxruntime Pillow numpy opencv-python
           pip install ddddocr
