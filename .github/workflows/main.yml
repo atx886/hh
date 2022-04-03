@@ -1,9 +1,7 @@
 name: "签到"
 
 
-env:
-  RUN_ENV: 'prod'
-  TZ: 'Asia/Shanghai'
+
 on:
   schedule:
     - cron: "05 11 * * *"  # scheduled at 06:00 (UTC+8) everyday
@@ -11,7 +9,9 @@ on:
   watch: 
     types: started
 
-
+env:
+  RUN_ENV: 'prod'
+  TZ: 'Asia/Shanghai'
 
 jobs:
   build:
