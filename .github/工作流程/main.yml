@@ -11,6 +11,7 @@ on:
   - cron: '4 16 * * *'
   push:
     branches: [ main ] 
+  watch: types: started
  
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
