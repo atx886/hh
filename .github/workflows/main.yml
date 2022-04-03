@@ -4,7 +4,7 @@ name: "签到"
 
 on:
   schedule:
-    - cron: "06 3 * * *"  # scheduled at 06:00 (UTC+8) everyday
+    - cron: "11 3 * * *"  # scheduled at 06:00 (UTC+8) everyday
   workflow_dispatch:
   watch: 
     types: started
@@ -31,9 +31,12 @@ jobs:
         run: sleep $(shuf -i 10-300 -n 1)
         
       - name: Install dependencies
+        env:
+
+          PUSH_PLUS_TOKEN: ${{secrets.PUSH_PLUS_TOKEN}}
         run: |
-          env:
-            PUSH_PLUS_TOKEN: ${{secrets.PUSH_PLUS_TOKEN}}
+
+
           python -m pip install --upgrade pip
           pip install onnxruntime Pillow numpy opencv-python
           pip install ddddocr
