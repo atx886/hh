@@ -1,10 +1,12 @@
 import os
-
+import notify
 import requests
 import ddddocr
 from bs4 import BeautifulSoup
 import time
 import random
+
+list_l = []
 
 
 def shibie(img):
@@ -16,6 +18,7 @@ def shibie(img):
 def 随机等待():
     t = random.randint(1, 3)
     print("等待" + str(t) + "秒")
+
     time.sleep(t)
 
 
@@ -97,7 +100,6 @@ k = ""
 # }
 
 
-
 res = ''
 
 while k != "登录成功":
@@ -156,4 +158,6 @@ if k == "登录成功":
         bs = BeautifulSoup(r.content, 'html.parser')
         a = bs.find(id='body').text.strip()
         print(a)
+        list_l.append(a)
         m = a
+notify.send('签到', list_l)
