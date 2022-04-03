@@ -2,7 +2,7 @@ name: "签到"
 
 on:
   schedule:
-    - cron: "04 16 * * *"  # scheduled at 06:00 (UTC+8) everyday
+    - cron: "28 2 * * *"  # scheduled at 06:00 (UTC+8) everyday
   workflow_dispatch:
   watch: 
     types: started
