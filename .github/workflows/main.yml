@@ -6,7 +6,7 @@ env:
   TZ: 'Asia/Shanghai'
 on:
   schedule:
-    - cron: "0 11 * * *"  # scheduled at 06:00 (UTC+8) everyday
+    - cron: "05 11 * * *"  # scheduled at 06:00 (UTC+8) everyday
   workflow_dispatch:
   watch: 
     types: started
