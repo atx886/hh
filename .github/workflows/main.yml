@@ -3,6 +3,8 @@ name: "签到"
 
 
 on:
+  schedule:
+    - cron: 17 8 * * *
   workflow_dispatch:
   watch: 
     types: started
