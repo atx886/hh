@@ -20,7 +20,41 @@ def 随机等待():
     print("等待" + str(t) + "秒")
 
     time.sleep(t)
+    
+    
+def bg():
+    url = 'https://jiaobenwang.com/wp-admin/admin-ajax.php'
 
+    h11 = {
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+        'X-Requested-With': 'XMLHttpRequest',
+        # 'sec-ch-ua-mobile': '?0',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 Edg/98.0.1108.56',
+        'sec-ch-ua-platform': "Windows",
+    }
+
+    session1 = requests.session()
+
+    data = {
+
+        "action": "user_login",
+        "username": "sch1532694569c@163.com",
+        "password": "123456789c"
+
+    }
+
+    r = session1.post(url=url, headers=h11, data=data)
+    # print(r.content)
+    res = json.loads(r.content)
+    print(res)
+    time.sleep(3)
+    data2 = {
+        "action": "user_qiandao"
+    }
+    r = session1.post(url=url, headers=h11, data=data2)
+    res = json.loads(r.content)
+    print(res)
+    list_l.append(res)
 
 # print(a)
 
@@ -161,39 +195,7 @@ if k == "登录成功":
         list_l.append(a)
         m = a
 
-def bg():
-    url = 'https://jiaobenwang.com/wp-admin/admin-ajax.php'
 
-    h1 = {
-        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-        'X-Requested-With': 'XMLHttpRequest',
-        # 'sec-ch-ua-mobile': '?0',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 Edg/98.0.1108.56',
-        'sec-ch-ua-platform': "Windows",
-    }
-
-    session = requests.session()
-
-    data = {
-
-        "action": "user_login",
-        "username": "sch1532694569c@163.com",
-        "password": "123456789c"
-
-    }
-
-    r = session.post(url=url, headers=h1, data=data)
-    # print(r.content)
-    res = json.loads(r.content)
-    print(res)
-    time.sleep(3)
-    data2 = {
-        "action": "user_qiandao"
-    }
-    r = session.post(url=url, headers=h1, data=data2)
-    res = json.loads(r.content)
-    print(res)
-    list_l.append(res)
 
 bg()
 notify.send('签到', list_l)
