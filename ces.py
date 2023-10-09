@@ -45,7 +45,7 @@ def dl(ph):
 # print(cont[0])
 
 start = time.time()
-with open('2.txt', 'r', encoding='utf-8') as f:
+with open('1.txt', 'r', encoding='utf-8') as f:
     cont = f.readlines()
     print(cont)
     print('a')
