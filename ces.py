@@ -17,6 +17,7 @@ def dl(ph):
         'password': ph}
     sess = requests.session()
     response = sess.post(base_url, headers=headers)
+    time.sleep(1)
     data = response.text
     # r = requests.get(data)
     #print(data)
@@ -28,6 +29,7 @@ def dl(ph):
     print(te[0])
     dl1 = sess.post(url1 + te[0], headers=headers, data=data1)
     print(dl1.text)
+    time.sleep(1)
     s = sess.post(url=url2 + te[0], headers=headers).json()
     #print(s)
     t = s['msg']
