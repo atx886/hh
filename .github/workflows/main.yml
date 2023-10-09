@@ -1,4 +1,4 @@
-name: "签到"
+name: "qddq"
 
 
 
@@ -43,4 +43,4 @@ jobs:
           pip install setuptools
           pip install requests
           pip install beautifulsoup4 
-          python hh.py
+          python ces.py
