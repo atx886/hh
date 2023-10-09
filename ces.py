@@ -63,7 +63,7 @@ dkcg = 0
 shibai = 0
 for n in num:
     jg = dl(n)
-    time.sleep(random.random() + random.randint(0, 3))
+    time.sleep(random.random())
     if jg == '你今天已经打过卡了':
         ydk += 1
     elif jg == '打卡成功':
