@@ -35,6 +35,7 @@ def dl(ph):
     t = s['msg']
     print(t)
     print(ph)
+    sess.close()
     return t
     # return t == '打开成功'
 
