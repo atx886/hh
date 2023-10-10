@@ -5,6 +5,7 @@ import json
 import random
 import notify
 
+k = 0
 ls = []
 
 
@@ -20,7 +21,7 @@ def dl(ph):
     time.sleep(1)
     data = response.text
     # r = requests.get(data)
-    #print(data)
+    # print(data)
     # print(r.content())
     url1 = 'https://ri09fjiomkvfrefcvc98s.spzhuisu.com/index/login/login.html?token='
     url2 = "https://ri09fjiomkvfrefcvc98s.spzhuisu.com/index/index/jf_dk.html?token="
@@ -31,11 +32,11 @@ def dl(ph):
     print(dl1.text)
     time.sleep(1)
     s = sess.post(url=url2 + te[0], headers=headers).json()
-    #print(s)
+    # print(s)
     t = s['msg']
     print(t)
     print(ph)
-    sess.close()
+    # sess.close()
     return t
     # return t == '打开成功'
 
@@ -51,8 +52,8 @@ def dl(ph):
 start = time.time()
 with open('1.txt', 'r', encoding='utf-8') as f:
     cont = f.readlines()
-   # print(cont)
-   # print('a')
+    # print(cont)
+    # print('a')
     f.close()
 num = []
 for c in cont:
@@ -62,8 +63,12 @@ print(num)
 ydk = 0
 dkcg = 0
 shibai = 0
+i = 0
 for n in num:
+    i += 1
     jg = dl(n)
+    k += 1
+    print("开始", k)
     time.sleep(random.random())
     if jg == '你今天已经打过卡了':
         ydk += 1
