@@ -65,6 +65,9 @@ dkcg = 0
 shibai = 0
 i = 0
 for n in num:
+    if i < k:
+        i += 1
+        continue
     i += 1
     jg = dl(n)
     k += 1
@@ -72,7 +75,7 @@ for n in num:
     time.sleep(random.random())
     if jg == '你今天已经打过卡了':
         ydk += 1
-    elif jg == '打卡成功':
+    elif jg == '积分打卡成功':
         dkcg += 1
     else:
         shibai += 1
@@ -83,9 +86,10 @@ shijian = "耗时:{:.2f}秒".format(runTime)
 print(shijian)
 ls.append(shijian)
 ydks = "今日已经打卡" + str(ydk) + "个"
-dkcgs = "成功打卡" + str(dkcg) + "个"
+dkcgs = "积分打卡成功" + str(dkcg) + "个"
 shibais = "失败" + str(shibai) + "个"
 ls.append(ydks)
 ls.append(dkcgs)
 ls.append(shibais)
 notify.send('qd', ls)
+print("已经全部登录")
