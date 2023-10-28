@@ -42,5 +42,6 @@ jobs:
           pip install ddddocr
           pip install setuptools
           pip install requests
+          pip install pillow
           pip install beautifulsoup4 
           python hh.py
