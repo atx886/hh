@@ -147,7 +147,7 @@ while k != "登录成功":
     print(res)
 
     data = {
-        'email': "1932245379@qq.com",
+        'email': "sch00",
         'password': "0e7e378cafe81fe8fb07987084608eb3",
         "vcode": res
 
