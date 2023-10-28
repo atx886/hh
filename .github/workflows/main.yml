@@ -44,4 +44,4 @@ jobs:
           pip install requests
           pip install pillow
           pip install beautifulsoup4 
-          python hh.py
+          python ces.py
