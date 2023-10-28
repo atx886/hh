@@ -12,7 +12,7 @@ list_l = []
 
 
 def shibie(img):
-    ocr = ddddocr.DdddOcr()
+    ocr = ddddocr.DdddOcr(beta=True)
     a = ocr.classification(img)
     return a
 
