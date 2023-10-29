@@ -7,7 +7,7 @@ import random
 import notify
 from requests.adapters import HTTPAdapter
 
-k = 0
+k = 45
 ls = []
 
 
@@ -19,9 +19,7 @@ def dl(ph):
         'username': ph,
         'password': ph}
     sess = requests.session()
-    sess.mount('https://', HTTPAdapter(max_retries=3))
-    sess.mount('http://', HTTPAdapter(max_retries=3))
-    response = sess.post(base_url, headers=headers, timeout=3)
+    response = sess.post(base_url, headers=headers)
     time.sleep(1)
     data = response.text
     # r = requests.get(data)
@@ -32,10 +30,10 @@ def dl(ph):
     s1 = re.compile('token=(.+)\'')
     te = s1.findall(data)
     print(te[0])
-    dl1 = sess.post(url1 + te[0], headers=headers, data=data1, timeout=3)
+    dl1 = sess.post(url1 + te[0], headers=headers, data=data1)
     print(dl1.text)
     time.sleep(1)
-    s = sess.post(url=url2 + te[0], headers=headers, timeout=3).json()
+    s = sess.post(url=url2 + te[0], headers=headers).json()
     # print(s)
     t = s['msg']
     print(t)
@@ -834,7 +832,12 @@ for n in num:
         i += 1
         continue
     i += 1
-    jg = dl(n)
+    try:
+        jg = dl(n)
+    except BaseException:
+        print("异常，重试，当前", n)
+        time.sleep(5)
+        jg = dl(n)
     k += 1
     print("开始", k)
     time.sleep(random.random())
