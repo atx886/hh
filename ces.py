@@ -7,7 +7,7 @@ import random
 import notify
 from requests.adapters import HTTPAdapter
 
-k = 45
+k = 0
 ls = []
 
 
