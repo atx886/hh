@@ -832,21 +832,25 @@ for n in num:
         i += 1
         continue
     i += 1
-    try:
-        jg = dl(n)
-    except BaseException:
-        print("异常，重试，当前", n)
-        time.sleep(5)
-        jg = dl(n)
-    k += 1
-    print("开始", k)
-    time.sleep(random.random())
-    if jg == '你今天已经打过卡了':
-        ydk += 1
-    elif jg == '积分打卡成功':
-        dkcg += 1
-    else:
-        shibai += 1
+    # s1 = 0
+    for s1 in range(1, 4):
+        try:
+            jg = dl(n)
+            k += 1
+            print("开始", k)
+            time.sleep(random.random())
+            if jg == '你今天已经打过卡了':
+                ydk += 1
+            elif jg == '积分打卡成功':
+                dkcg += 1
+            else:
+                shibai += 1
+            break
+        except BaseException:
+            print("异常，重试，当前", n)
+            time.sleep(5)
+            continue
+            # s1 += 1
 
 end = time.time()
 runTime = end - start
